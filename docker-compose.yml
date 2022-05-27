@@ -1,0 +1,16 @@
+services:
+  auth_node1:
+    build: .
+    volumes:
+      - ./auth_node1/keystore:/root/.ethereum/keystore
+  auth_node2:
+    image: ethereum/client-go:alltools-v1.10.10
+    volumes:
+      - ./auth_node2/keystore:/root/.ethereum/keystore
+  auth_node3:
+    image: ethereum/client-go:alltools-v1.10.10
+    volumes:
+      - ./auth_node3/keystore:/root/.ethereum/keystore
+  bootnode:
+    image: ethereum/client-go:alltools-v1.10.10
+  
