@@ -1,16 +1,8 @@
 services:
   auth_node1:
-    build: .
-    volumes:
-      - ./auth_node1/keystore:/root/.ethereum/keystore
+    build: . 
   auth_node2:
-    image: ethereum/client-go:alltools-v1.10.10
-    volumes:
-      - ./auth_node2/keystore:/root/.ethereum/keystore
+    build: .
   auth_node3:
-    image: ethereum/client-go:alltools-v1.10.10
-    volumes:
-      - ./auth_node3/keystore:/root/.ethereum/keystore
-  bootnode:
-    image: ethereum/client-go:alltools-v1.10.10
-  
+    build: .  
+    #command: --unlock 0xa273a5c973a6be46ca427d4201b8ab967c04624a --password /root/.ethereum/keystore/password --mine --miner.threads 1 --miner.etherbase 0xa273a5c973a6be46ca427d4201b8ab967c04624a --http --http.addr 0.0.0.0 --http.vhosts * --http.api admin,eth,miner,personal,web3 --allow-insecure-unlock --nodiscover --nousb --miner.gasprice 1
