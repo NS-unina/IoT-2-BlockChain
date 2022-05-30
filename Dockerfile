@@ -6,3 +6,5 @@ COPY ./keystore /root/.ethereum/keystore
 RUN geth --nousb init /root/genesis.json
 
 #ENTRYPOINT [ "geth" ]                                                                                                                                                                       
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
