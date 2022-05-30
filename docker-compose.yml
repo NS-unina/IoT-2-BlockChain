@@ -2,8 +2,9 @@ services:
   auth_node1:
     build: . 
     command: geth --nousb --syncmode 'full' --port 30310 --miner.gasprice 0 --miner.gastarget 470000000000 --http --http.vhosts "*" --http.addr 'localhost' --http.port 8545 --http.api admin,eth,miner,net,txpool,personal,web3 --http.corsdomain "*" --mine --allow-insecure-unlock --unlock "0xa273a5c973a6be46ca427d4201b8ab967c04624a" --password /root/.ethereum/keystore/password.txt
-  #auth_node2:
-    #build: .
+  auth_node2:
+    build: .
+    command: geth --nousb --syncmode 'full' --port 30310 --miner.gasprice 0 --miner.gastarget 470000000000 --http --http.vhosts "*" --http.addr 'localhost' --http.port 8545 --http.api admin,eth,miner,net,txpool,personal,web3 --http.corsdomain "*" --mine --allow-insecure-unlock --unlock "0x5518d205d80a0cd251011b220b94b3a12e10a261" --password /root/.ethereum/keystore/password.txt
   #auth_node3:
     #build: .  
     #command: --unlock 0xa273a5c973a6be46ca427d4201b8ab967c04624a --password /root/.ethereum/keystore/password --mine --miner.threads 1 --miner.etherbase 0xa273a5c973a6be46ca427d4201b8ab967c04624a --http --http.addr 0.0.0.0 --http.vhosts * --http.api admin,eth,miner,personal,web3 --allow-insecure-unlock --nodiscover --nousb --miner.gasprice 1
