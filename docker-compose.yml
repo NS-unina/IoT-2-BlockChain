@@ -4,9 +4,8 @@ services:
     build:
       context: .
     ports:
-      - 30301:30301/udp
-    #command: bootnode --nodekeyhex ${BOOTNODE_KEY}
-    command: "tail -f /dev/null"
+      - 30301:30301
+    command: bootnode -nodekey /root/bootnode.key -addr 172.11.0.111:30301
     networks:
       research:
         ipv4_address: 172.11.0.111
@@ -18,13 +17,15 @@ services:
     container_name: node
     ports:
       - 8545:8545
+    command: "tail -f /dev/null"
     #command: geth
     #  --syncmode full
-    #  --bootnodes enode://${BOOTNODE_ID}@172.3.0.111:30301
-    #  --networkid ${NETWORK_ID}
-    #  --rpc --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi "eth,web3,net,admin,db"
-    #  --ethstats node:${NETSTATS_SECRET}@netstats:3000
-    command: "tail -f /dev/null"
+    #  --networkid 7863
+    #  --http --http.addr 0.0.0.0 --http.corsdomain "*" --http.vhosts "*" --http.api admin,eth,miner,net,txpool,personal,web3
+    #  --allow-insecure-unlock --unlock "0xa273a5c973a6be46ca427d4201b8ab967c04624a"
+    #  --password /root/.ethereum/keystore/password.txt
+    #  --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:0?discport=30301
+    #  --verbosity 6
     networks:
       - research
   node-miner-1:
@@ -36,15 +37,16 @@ services:
     container_name: node-miner-1
     ports:
       - 8546:8545
+    command: "tail -f /dev/null"
     #command: geth
     #  --syncmode full
-    #  --bootnodes enode://${BOOTNODE_ID}@172.3.0.111:30301
-    #  --networkid ${NETWORK_ID}
-    #  --rpc --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi "eth,web3,net,admin,db,miner"
-    #  --mine --miner.etherbase ${ACCOUNT_1}
-    #  --unlock ${ACCOUNT_1} --password password.txt
-    #  --ethstats node-miner-1:${NETSTATS_SECRET}@netstats:3000
-    command: "tail -f /dev/null"
+    #  --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:0?discport=30301
+    #  --networkid 7863
+    #  --http --http.addr 0.0.0.0 --http.corsdomain "*" --http.vhosts "*" --http.api admin,eth,miner,net,txpool,personal,web3
+    #  --allow-insecure-unlock --unlock "0x5518d205d80a0cd251011b220b94b3a12e10a261"
+    #  --mine --miner.etherbase "0x5518d205d80a0cd251011b220b94b3a12e10a261"
+    #  --password /root/.ethereum/keystore/password.txt
+    #  --verbosity 6
     networks:
       - research
   node-miner-2:
@@ -56,15 +58,17 @@ services:
     container_name: node-miner-2
     ports:
       - 8547:8545
+    command: "tail -f /dev/null"
     #command: geth
     #  --syncmode full
-    #  --bootnodes enode://${BOOTNODE_ID}@172.3.0.111:30301
-    #  --networkid ${NETWORK_ID}
-    #  --rpc --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi "eth,web3,net,admin,db,miner"
-    #  --mine --miner.etherbase ${ACCOUNT_2}
-    #  --unlock ${ACCOUNT_2} --password password.txt
-    #  --ethstats node-miner-2:${NETSTATS_SECRET}@netstats:3000
-    command: "tail -f /dev/null"
+    #  --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:0?discport=30301
+    #  --networkid 7863
+    #  --http --http.addr 0.0.0.0 --http.corsdomain "*" --http.vhosts "*" --http.api admin,eth,miner,net,txpool,personal,web3
+    #  --allow-insecure-unlock --unlock "0x4ca223bc02517af088e8122a14a0a2e5d1a102f7"
+    #  --mine --miner.etherbase "0x4ca223bc02517af088e8122a14a0a2e5d1a102f7"
+    #  --password /root/.ethereum/keystore/password.txt
+    #  --verbosity 6
+    #command: "tail -f /dev/null"
     networks:
       - research
 
