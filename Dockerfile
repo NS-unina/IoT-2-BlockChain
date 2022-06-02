@@ -7,4 +7,3 @@ RUN geth --nousb init /root/genesis.json
 
 RUN rm -f ~/.ethereum/geth/nodekey
 
-#ENTRYPOINT [ "geth" ]                                                                                                                                                                       
