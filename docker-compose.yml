@@ -13,7 +13,7 @@ services:
   bootnode:
     container_name: bootnode
     build:
-      context: .
+      context: ./node
     ports:
       - 30301:30301
     command: bootnode -nodekey /root/bootnode.key -addr 172.11.0.111:30301
@@ -24,7 +24,7 @@ services:
     depends_on:
       - bootnode
     build:
-      context: .
+      context: ./node
     container_name: node
     ports:
       - 8545:8545
@@ -35,6 +35,8 @@ services:
       --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:30301 
       --networkid 7863 
       --http --http.addr 0.0.0.0 --http.corsdomain "*"  --http.api "admin,debug,web3,eth,txpool,personal,clique,miner,net" --netrestrict="172.11.0.0/24"
+      --allow-insecure-unlock --unlock "0xa273a5c973a6be46ca427d4201b8ab967c04624a"
+      --password /root/.ethereum/keystore/password.txt
       --ethstats node:asdf@172.11.0.222:3000
     networks:
       - eth
@@ -43,7 +45,7 @@ services:
       - bootnode
     #  - netstats
     build:
-      context: .
+      context: ./node
     container_name: node-miner-1
     ports:
       - 8546:8545
@@ -53,7 +55,7 @@ services:
       --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:30301 
       --networkid 7863 
       --http --http.addr 0.0.0.0 --http.corsdomain "*"  --http.api "admin,debug,web3,eth,txpool,personal,clique,miner,net" 
-      --mine --miner.etherbase "0x4ca223bc02517af088e8122a14a0a2e5d1a102f7" 
+      --mine --miner.etherbase "0x4ca223bc02517af088e8122a14a0a2e5d1a102f7" --miner.threads 1
       --allow-insecure-unlock --unlock "0x4ca223bc02517af088e8122a14a0a2e5d1a102f7" --password /root/.ethereum/keystore/password.txt -netrestrict="172.11.0.0/24"
       --ethstats node-miner-1:asdf@172.11.0.222:3000
     networks:
@@ -63,7 +65,7 @@ services:
       - bootnode
     #  - netstats
     build:
-      context: .
+      context: ./node
     container_name: node-miner-2
     ports:
       - 8547:8545
@@ -73,13 +75,12 @@ services:
       --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:30301 
       --networkid 7863 
       --http --http.addr 0.0.0.0 --http.corsdomain "*"  --http.api "admin,debug,web3,eth,txpool,personal,clique,miner,net" 
-      --mine --miner.etherbase "0x5518d205d80a0cd251011b220b94b3a12e10a261" 
+      --mine --miner.etherbase "0x5518d205d80a0cd251011b220b94b3a12e10a261" --miner.threads 1
       --allow-insecure-unlock --unlock "0x5518d205d80a0cd251011b220b94b3a12e10a261" --password /root/.ethereum/keystore/password.txt -netrestrict="172.11.0.0/24"   
       --ethstats node-miner-2:asdf@172.11.0.222:3000
     networks:
       - eth
 
-  
 networks:
   eth:
     driver: bridge
