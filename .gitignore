@@ -3,6 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,visualstudiocode,python
 
 prova.py
+abi.txt
+eth_scan.py
 
 ### Linux ###
 *~
