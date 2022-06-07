@@ -16,10 +16,13 @@ def compile_source_file(file_path):
 
 
 def deploy_contract(w3, contract_interface):
+    
     tx_hash = w3.eth.contract(
         abi=contract_interface['abi'],
         bytecode=contract_interface['bin']).constructor().transact({'from': w3.eth.accounts[0]})
-
+    
+    receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+ 
     address = w3.eth.get_transaction_receipt(tx_hash)['contractAddress']
     return address
 
@@ -34,6 +37,7 @@ compiled_sol = compile_source_file('contract.sol')
 contract_id, contract_interface = compiled_sol.popitem()
 
 address = deploy_contract(w3, contract_interface)
+
 print(f'Deployed {contract_id} to: {address}\n')
 
 store_var_contract = w3.eth.contract(address=address, abi=contract_interface["abi"])
@@ -43,7 +47,7 @@ print(f'Gas estimate to transact with setVar: {gas_estimate}')
 
 if gas_estimate < 100000:
      print("Sending transaction to setVar(255)\n")
-     tx_hash = store_var_contract.functions.setVar(255).transact()
+     tx_hash = store_var_contract.functions.setVar(255).transact({'from': w3.eth.accounts[0]})
      receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
      print("Transaction receipt mined:")
      pprint.pprint(dict(receipt))
