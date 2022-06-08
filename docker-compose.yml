@@ -80,6 +80,16 @@ services:
       --ethstats node-miner-2:asdf@172.11.0.222:3000
     networks:
       - eth
+#  explorer:
+#    depends_on:
+#      - node
+#    container_name: explorer
+#    build:
+#      context: ./explorer 
+#    ports:
+#      - 8000:8000
+#    
+
 
 networks:
   eth:
