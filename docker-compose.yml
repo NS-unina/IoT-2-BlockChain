@@ -80,6 +80,15 @@ services:
       --ethstats node-miner-2:asdf@172.11.0.222:3000
     networks:
       - eth
+  broker:
+    container_name: mqtt-broker
+    image: "eclipse-mosquitto:2.0.14"
+    ports:
+      - 1883:1883
+    networks:
+      eth:
+        ipv4_address: 172.11.0.123
+
 #  explorer:
 #    depends_on:
 #      - node

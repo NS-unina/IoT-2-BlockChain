@@ -1,35 +1,43 @@
-#!/usr/bin/env python
+import random
+from paho.mqtt import client as mqtt_client
 
-"""
-A single-process subscriber.
-
-"""
-import json
-import sys
-import paho.mqtt.subscribe as subscribe
-
-HOST = 'localhost'
-PORT = 1883
-KEEPALIVE = 60  # in seconds
+broker = 'broker.emqx.io'
+port = 1883
+topic = "dummy-data"
+client_id = f'python-mqtt-{random.randint(0, 100)}'
+username = 'iot'
+password = 'blockchain'
 
 
-# The callback for when a PUBLISH message is received from the server.
-def on_message(client, userdata, msg):
-    payload = json.loads(msg.payload.decode('utf8'))
-    ts = payload.get('timestamp')
-    value = payload.get('value')
-    print(f"[{ts}] {value} -- {msg.topic}")
+def connect_mqtt() -> mqtt_client:
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            print("[+] Connected to MQTT Broker!")
+        else:
+            print("[-] Failed to connect, return code %d\n", rc)
+
+    client = mqtt_client.Client(client_id)
+    client.username_pw_set(username, password)
+    client.on_connect = on_connect
+    client.connect("172.11.0.123", port)
+    return client
 
 
-if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        topic = sys.argv[1]
+def subscribe(client: mqtt_client):
+    def on_message(client, userdata, msg):
+        print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
 
-        # for more details, see:
-        # https://github.com/eclipse/paho.mqtt.python#subscribe-1
-        subscribe.callback(
-            on_message, topic, hostname=HOST, port=PORT, keepalive=KEEPALIVE
-        )
+    client.subscribe(topic)
+    client.on_message = on_message
 
-    else:
-        print("USAGE: ./subscriber.py <topic>")
+
+def run():
+    client = connect_mqtt()
+    subscribe(client)
+    client.loop_forever()
+
+
+if __name__ == '__main__':
+    print("[+] CLIENT-ID: " + client_id) 
+
+    run()
