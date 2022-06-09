@@ -49,10 +49,10 @@ def compile_source_file(file_path):
 #w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 #w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 
-web3 = iot2blockchian()
-contract_source_path = './contracts/storage.sol'
-web3.compile_source_file(contract_source_path)
-address = web3.deploy_contract()
+#web3 = iot2blockchian()
+#contract_source_path = './contracts/storage.sol'
+#web3.compile_source_file(contract_source_path)
+#address = web3.deploy_contract()
 """
 print(f'Deployed contract to: {address}\n')
 
