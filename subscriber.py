@@ -2,6 +2,9 @@
 
 import random
 
+from web3 import Web3
+from web3.middleware import geth_poa_middleware
+
 from paho.mqtt import client as mqtt_client
 from mqttnode import subscriber
 
@@ -25,6 +28,10 @@ def subscribe(client: mqtt_client):
 
 
 def main():
+
+    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    w3.middleware_onion.inject(geth_poa_middleware, layer=0)
+
     connector = subscriber()
     connector.connect_mqtt()
     connector.subscribe()

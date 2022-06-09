@@ -1,29 +1,19 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >=0.7.0 <0.9.0;
+pragma solidity >=0.6.0 <0.9.0;
 
-/**
- * @title Storage
- * @dev Store & retrieve value in a variable
- * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
- */
-contract Storage {
+contract StoreVar {
 
-    uint256 number;
+    uint8 public _myVar;
+    event MyEvent(uint indexed _var);
 
-    /**
-     * @dev Store value in variable
-     * @param num value to store
-     */
-    function store(uint256 num) public {
-        number = num;
+    function setVar(uint8 _var) public {
+        _myVar = _var;
+        emit MyEvent(_var);
     }
 
-    /**
-     * @dev Return value 
-     * @return value of 'number'
-     */
-    function retrieve() public view returns (uint256){
-        return number;
+    function getVar() public view returns (uint8) {
+        return _myVar;
     }
+
 }
