@@ -6,7 +6,7 @@ import time
 from paho.mqtt import client as mqtt_client
 from mqttnode import publisher
 
-def run():
+def main():
     connector = publisher()
     connector.connect_mqtt()
     connector.client.loop_start()
@@ -15,4 +15,4 @@ def run():
         connector.publish(random.randint(0,10))
 
 if __name__ == '__main__':
-    run()
+    main()

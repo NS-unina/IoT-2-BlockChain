@@ -37,3 +37,17 @@ class publisher(mqtt):
             print(f"[+] Send to topic {self.topic}")
         else:
             print(f"[-] Failed to send message to topic {self.topic}")
+
+class subscriber(mqtt):
+    def __init__(self, broker = "127.0.0.1", port = 1883, topic = "dummy-data", client_id = f'python-mqtt-{random.randint(0, 100)}'):
+        super().__init__(broker, port, topic, client_id)
+
+    def subscribe(self):
+        def on_message(client, userdata, msg):
+            print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+
+        self.client.subscribe(self.topic)
+        self.client.on_message = on_message
+
+    def loop_forever(self):
+        self.client.loop_forever()
