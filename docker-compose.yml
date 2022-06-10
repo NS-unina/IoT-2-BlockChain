@@ -86,6 +86,8 @@ services:
     ports:
       - 1883:1883
       - 9001:9001
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
     networks:
       eth:
         ipv4_address: 172.11.0.123
@@ -97,7 +99,15 @@ services:
       context: ./explorer 
     ports:
       - 8000:8000
-    
+  publisher:
+    depends_on:
+      - broker
+    container_name: publisher
+    build:
+      context: ./publisher
+    command: "tail -f /dev/null"
+    networks:
+      - eth    
 
 
 networks:
