@@ -46,39 +46,3 @@ class iot2blockchian:
         #pprint.pprint(dict(receipt))
         if receipt["status"] == 1:
             print("[+] Transaction was successful")
-
-#web3 = iot2blockchian()
-#contract_source_path = './contracts/storage.sol'
-#web3.compile_source_file(contract_source_path)
-#web3.deploy_contract()
-#web3.setTransaction(5)
-
-#w3 = Web3(EthereumTesterProvider(PyEVMBackend()))
-#w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-#w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-
-#web3 = iot2blockchian()
-#contract_source_path = './contracts/storage.sol'
-#web3.compile_source_file(contract_source_path)
-#address = web3.deploy_contract()
-"""
-print(f'Deployed contract to: {address}\n')
-
-store_var_contract = w3.eth.contract(address=address, abi=contract_interface["abi"])
-
-gas_estimate = store_var_contract.functions.setVar(255).estimateGas()
-print(f'Gas estimate to transact with setVar: {gas_estimate}')
-"""
-"""
-
-if gas_estimate < 100000:
-    print("Sending transaction to setVar(255)\n")
-    tx_hash = store_var_contract.functions.setVar(255).transact({'from': w3.eth.accounts[0]})
-    receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
-    print("Transaction receipt mined:")
-    pprint.pprint(dict(receipt))
-    print("\nWas transaction successful?")
-    pprint.pprint(receipt["status"])
-else:
-     print("Gas cost exceeds 100000")
-"""

@@ -89,15 +89,15 @@ services:
 #      eth:
 #        ipv4_address: 172.11.0.123
 #
-#  explorer:
-#    depends_on:
-#      - node
-#    container_name: explorer
-#    build:
-#      context: ./explorer 
-#    ports:
-#      - 8000:8000
-#    
+  explorer:
+    depends_on:
+      - node
+    container_name: explorer
+    build:
+      context: ./explorer 
+    ports:
+      - 8000:8000
+    
 
 
 networks:
