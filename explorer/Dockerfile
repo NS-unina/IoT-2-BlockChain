@@ -1,8 +1,8 @@
 FROM node:16-alpine3.14
 
 RUN apk add --update git
-RUN git clone https://github.com/etherparty/explorer.git
+RUN git clone https://github.com/zulhfreelancer/explorer.git
 
 WORKDIR /explorer
-RUN git checkout 9942a29cd227784df1b359c9a1dd28928167dfbb
+RUN git checkout 47a567d0a63b6016816bb9e0def3039caed5dad1
 CMD npm start
