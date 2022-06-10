@@ -2,7 +2,7 @@ from web3 import Web3
 from web3.middleware import geth_poa_middleware
 import time
 
-contractAddress = '0xb51ED2Ed5899DEBA287c7734f1E4382550C05b2f'
+contractAddress = '0xFfC6dBE419a67a957BD22e259ee8Dcdf4eEec1E2'
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 

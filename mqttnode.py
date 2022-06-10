@@ -42,12 +42,15 @@ class subscriber(mqtt):
     def __init__(self, broker = "127.0.0.1", port = 1883, topic = "dummy-data", client_id = f'python-mqtt-{random.randint(0, 100)}'):
         super().__init__(broker, port, topic, client_id)
 
-    def subscribe(self):
+    def subscribe(self, web3):
         def on_message(client, userdata, msg):
             print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
-
+            web3.setTransaction(int(msg.payload.decode()))
         self.client.subscribe(self.topic)
         self.client.on_message = on_message
+        #print(self.client.on_message.msg.payload.decode())
 
+        
+    
     def loop_forever(self):
         self.client.loop_forever()

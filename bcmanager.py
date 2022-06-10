@@ -15,6 +15,7 @@ class iot2blockchian:
         self.contract_interface = ""
         self.contract_id = ""
         self.address = ""
+ 
 
     def sendTransaction(self):
         pass
@@ -30,7 +31,7 @@ class iot2blockchian:
             return address
         
         self.address = deploy_contract(self.w3, self.contract_interface)
-        print(f'[+] Deployed contract with address: {self.address}\n')
+        print(f'[+] Deployed contract with address: {self.address}')
 
     def compile_source_file(self, file_path):
         with open(file_path, 'r') as f:
@@ -38,12 +39,19 @@ class iot2blockchian:
         compiled_sol = compile_source(source)
         self.contract_id, self.contract_interface = compiled_sol.popitem()
 
+    def setTransaction(self, val):
+        store_var_contract = self.w3.eth.contract(address=self.address, abi=self.contract_interface["abi"])
+        tx_hash = store_var_contract.functions.setVar(val).transact({'from': self.w3.eth.accounts[0]})
+        receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
+        #pprint.pprint(dict(receipt))
+        if receipt["status"] == 1:
+            print("[+] Transaction was successful")
 
-
-def compile_source_file(file_path):
-    with open(file_path, 'r') as f:
-        source = f.read()
-    return compile_source(source)
+#web3 = iot2blockchian()
+#contract_source_path = './contracts/storage.sol'
+#web3.compile_source_file(contract_source_path)
+#web3.deploy_contract()
+#web3.setTransaction(5)
 
 #w3 = Web3(EthereumTesterProvider(PyEVMBackend()))
 #w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
