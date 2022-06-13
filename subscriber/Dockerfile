@@ -1,0 +1,7 @@
+FROM python:3.10.5-bullseye
+COPY ./code/ /root/
+
+WORKDIR /root
+RUN pip install -r requirement.txt
+
+#CMD python3 publisher.py
