@@ -7,6 +7,7 @@ from web3.providers.eth_tester import EthereumTesterProvider
 from web3 import Web3
 from eth_tester import PyEVMBackend
 from solcx import compile_source
+import requests
 
 class iot2blockchian:
     def __init__(self, rpcProvider = "http://172.11.0.66:8545"):
@@ -17,8 +18,8 @@ class iot2blockchian:
         self.address = ""
  
 
-    def sendTransaction(self):
-        pass
+    def sendContractAdd(self):
+        requests.get('http://172.11.0.88:5000/contract/' +  self.address)
 
     def deploy_contract(self):
         def deploy_contract(w3, contract_interface):
@@ -32,6 +33,8 @@ class iot2blockchian:
         
         self.address = deploy_contract(self.w3, self.contract_interface)
         print(f'[+] Deployed contract with address: {self.address}')
+        self.sendContractAdd()
+        print(f'[+] Send contract address to server')
 
     def compile_source_file(self, file_path):
         with open(file_path, 'r') as f:

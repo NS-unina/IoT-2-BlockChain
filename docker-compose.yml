@@ -1,5 +1,4 @@
-services:
-  
+services: 
   ethstat:
     container_name: ethstat
     build:
@@ -110,6 +109,7 @@ services:
   
   subscriber:
     depends_on:
+      - server
       - broker
       - node
     container_name: subscriber
@@ -126,10 +126,11 @@ services:
     container_name: server
     build:
       context: ./server
+    ports:
+      - 5000:5000
     networks:
       eth:
         ipv4_address: 172.11.0.88     
-    command: "tail -f /dev/null"
 
 
 networks:
