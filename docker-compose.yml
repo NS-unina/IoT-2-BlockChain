@@ -119,6 +119,18 @@ services:
       - eth      
     command: "tail -f /dev/null"
 
+  server:
+    depends_on:
+      - broker
+      - node
+    container_name: server
+    build:
+      context: ./server
+    networks:
+      eth:
+        ipv4_address: 172.11.0.88     
+    command: "tail -f /dev/null"
+
 
 networks:
   eth:
