@@ -10,7 +10,7 @@ from solcx import compile_source
 import requests
 
 class iot2blockchian:
-    def __init__(self, rpcProvider = "http://127.0.0.1:8545"):
+    def __init__(self, rpcProvider = "http://172.11.0.66:8545"):
         self.w3 = Web3(Web3.HTTPProvider(rpcProvider))
         self.w3.middleware_onion.inject(geth_poa_middleware, layer=0)
         self.contract_interface = ""
