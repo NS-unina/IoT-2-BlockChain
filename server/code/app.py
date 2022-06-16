@@ -89,4 +89,5 @@ def show_post(add_contract):
 
 
 if __name__ == "__main__":
+    testFlag = False
     application.run(host="0.0.0.0", threaded=True)

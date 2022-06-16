@@ -108,6 +108,7 @@ services:
       - eth    
   
   subscriber:
+    restart: always
     depends_on:
       - server
       - broker
