@@ -117,7 +117,7 @@ services:
       context: ./subscriber
     networks:
       - eth      
-    command: "tail -f /dev/null"
+    #command: "tail -f /dev/null"
 
   server:
     depends_on:

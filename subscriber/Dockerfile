@@ -5,4 +5,4 @@ WORKDIR /root
 RUN pip install -r requirement.txt
 RUN python -c "from solcx import install_solc; install_solc('v0.6.6')"
 
-#CMD python3 publisher.py
+CMD python3 subscriber.py
