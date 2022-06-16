@@ -4,5 +4,5 @@ RUN apk add --update git
 RUN git clone https://github.com/zulhfreelancer/explorer.git
 
 WORKDIR /explorer
-RUN git checkout 47a567d0a63b6016816bb9e0def3039caed5dad1
+RUN git checkout cc268475fd00fba1165b84450291850198368e11
 CMD npm start

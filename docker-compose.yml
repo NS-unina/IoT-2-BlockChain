@@ -134,6 +134,17 @@ services:
         ipv4_address: 172.11.0.88     
     #command: "tail -f /dev/null"
 
+  explorer:
+    depends_on:
+      - node
+    container_name: explorer
+    image: "zulhfreelancer/ethereum_explorer:latest"
+    ports:
+      - 8000:8000
+    networks:
+      eth:
+        ipv4_address: 172.11.0.99     
+
 networks:
   eth:
     driver: bridge
