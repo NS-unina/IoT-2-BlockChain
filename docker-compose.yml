@@ -30,7 +30,6 @@ services:
     container_name: node
     ports:
       - 8545:8545
-    #command: "tail -f /dev/null"    
     command: geth 
       --syncmode full 
       --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:30301 
@@ -52,7 +51,6 @@ services:
     container_name: miner-1
     ports:
       - 8546:8545
-    #command: "tail -f /dev/null"
     command: geth
       --syncmode full 
       --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:30301 
@@ -67,13 +65,11 @@ services:
   node-miner-2:
     depends_on:
       - bootnode
-    #  - netstats
     build:
       context: ./node
     container_name: miner-2
     ports:
       - 8547:8545
-    #command: "tail -f /dev/null"
     command: geth
       --syncmode full
       --bootnodes enode://e6995ea96ec47d206a752fc177653327d5acfa08caf69233836efc164a698ea925ac617d80d53885308282c7b43402978b6cc01f42bb56a4e521a2ae455480f6@172.11.0.111:30301 
