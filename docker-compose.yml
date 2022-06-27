@@ -45,7 +45,7 @@ services:
   node-miner-1:
     depends_on:
       - bootnode
-    #  - netstats
+      - ethstat
     build:
       context: ./node
     container_name: miner-1
@@ -114,7 +114,7 @@ services:
       context: ./subscriber
     networks:
       - eth      
-    #command: "tail -f /dev/null"
+    command: "tail -f /dev/null"
 
   server:
     depends_on:
