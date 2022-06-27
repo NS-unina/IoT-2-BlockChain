@@ -1,5 +1,5 @@
 # python 3.6
-
+import argparse
 import random
 import time
 
@@ -15,4 +15,7 @@ def main():
         connector.publish(random.randint(0,10))
 
 if __name__ == '__main__':
+    #parser = argparse.ArgumentParser()
+    #parser.add_argument('--topic', help='foo help')
+    #parser.add_argument('--foo', help='foo help')
     main()
