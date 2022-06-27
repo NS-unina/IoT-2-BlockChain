@@ -6,4 +6,4 @@ WORKDIR /root
 RUN apk add --update --no-cache python3 py3-pip
 RUN pip install -r requirement.txt
 
-CMD python3 publisher.py
+CMD python3 publisher.py -t "dummy-data"

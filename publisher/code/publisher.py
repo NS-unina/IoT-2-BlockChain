@@ -6,8 +6,8 @@ import time
 from paho.mqtt import client as mqtt_client
 from mqttnode import publisher
 
-def main():
-    connector = publisher()
+def main(topic, id):
+    connector = publisher("172.11.0.123", 1883, topic, id)
     connector.connect_mqtt()
     connector.client.loop_start()
     while True:
@@ -15,7 +15,9 @@ def main():
         connector.publish(random.randint(0,10))
 
 if __name__ == '__main__':
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument('--topic', help='foo help')
-    #parser.add_argument('--foo', help='foo help')
-    main()
+    parser = argparse.ArgumentParser(description='IoT demo device')
+    required_named = parser.add_argument_group('required named arguments')
+    required_named.add_argument('-t', '--topic', help='name of MQTT topic', required=True)
+    args = parser.parse_args()
+
+    main(args.topic, "5")
