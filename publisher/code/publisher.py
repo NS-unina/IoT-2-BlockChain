@@ -18,6 +18,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='IoT demo device')
     required_named = parser.add_argument_group('required named arguments')
     required_named.add_argument('-t', '--topic', help='name of MQTT topic', required=True)
+    required_named.add_argument('-i', '--id', help='device ID', required=True)
     args = parser.parse_args()
-
-    main(args.topic, "5")
+    
+    main(args.topic, args.id)

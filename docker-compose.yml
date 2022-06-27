@@ -104,6 +104,17 @@ services:
     networks:
       - eth    
   
+  publisher-2:
+    depends_on:
+      - broker
+      - node
+    container_name: publisher-2
+    build:
+      context: ./publisher
+    networks:
+      - eth 
+    command: "tail -f /dev/null"
+
   subscriber:
     restart: always
     depends_on:
