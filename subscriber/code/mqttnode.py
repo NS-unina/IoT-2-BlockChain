@@ -39,18 +39,25 @@ class publisher(mqtt):
             print(f"[-] Failed to send message to topic {self.topic}")
 
 class subscriber(mqtt):
-    def __init__(self, broker = "172.11.0.123", port = 1883, topic = "dummy-data", client_id = f'python-mqtt-{random.randint(0, 100)}'):
+    def __init__(self, broker = "172.11.0.123", port = 1883, topic = "dummy-data", client_id = "15"):
         super().__init__(broker, port, topic, client_id)
 
     def subscribe(self, web3):
         def on_message(client, userdata, msg):
             print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
             web3.setTransaction(int(msg.payload.decode()))
-        self.client.subscribe(self.topic)
+        self.client.subscribe([("data2",0),("dummy-data",0)])
+        #self.client.subscribe("data2")
         self.client.on_message = on_message
         #print(self.client.on_message.msg.payload.decode())
 
-        
+    def subscribeNormal(self, web3):
+        def on_message(client, userdata, msg):
+            print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+            #web3.setTransaction(int(msg.payload.decode()))
+        self.client.subscribe("data2")
+        #self.client.subscribe([("Server1/data2",0),("Server2/dummy-data",0)])
+        self.client.on_message = on_message    
     
     def loop_forever(self):
         self.client.loop_forever()

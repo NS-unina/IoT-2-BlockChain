@@ -113,7 +113,7 @@ services:
       context: ./publisher
     networks:
       - eth 
-    command: "tail -f /dev/null"
+    command: "python3 publisher.py -t data2 -i 10"
 
   subscriber:
     restart: always
