@@ -27,7 +27,7 @@ def handle_event(event):
     receipt = contract.w3.eth.waitForTransactionReceipt(event['transactionHash'])
     result = id_event.processReceipt(receipt) # Modification
     #logger.info(result[0]['args']["_var"])
-    return result[0]['args']["_var"]
+    return result[0]['args']["iotData"][1]
     #print(result[0]['args']["_var"])
     #print(type(result[0]['args']))
 
@@ -80,7 +80,7 @@ def show_post(add_contract):
     abi2 = f.read()
 
     id_contract = contract.w3.eth.contract(address=contract.address, abi=abi2)
-    id_event = id_contract.events.MyEvent()
+    id_event = id_contract.events.valueRequest()
     block_filter = contract.w3.eth.filter({'fromBlock':'latest', 'address':contract.address})
 
     

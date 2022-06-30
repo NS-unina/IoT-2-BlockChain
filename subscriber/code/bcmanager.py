@@ -19,8 +19,7 @@ class iot2blockchian:
  
 
     def sendContractAdd(self):
-        pass
-        #requests.get('http://172.11.0.88:5000/contract/' +  self.address)
+        requests.get('http://172.11.0.88:5000/contract/' +  self.address)
 
     def deploy_contract(self):
         def deploy_contract(w3, contract_interface):
