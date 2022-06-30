@@ -102,7 +102,8 @@ services:
     build:
       context: ./publisher
     networks:
-      - eth    
+      - eth  
+    command: "python3 publisher.py -t data1 -i 5"  
   
   publisher-2:
     depends_on:
