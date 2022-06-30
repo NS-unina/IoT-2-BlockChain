@@ -27,16 +27,13 @@ def handle_event(event):
     receipt = contract.w3.eth.waitForTransactionReceipt(event['transactionHash'])
     result = id_event.processReceipt(receipt) # Modification
     #logger.info(result[0]['args']["_var"])
-    return result[0]['args']["iotData"][1]
+    return result[0]['args']["iotData"]
     #print(result[0]['args']["_var"])
     #print(type(result[0]['args']))
 
 def generate_random_data() -> Iterator[str]:
-    """
-    Generates random value between 0 and 100
-
-    :return: String containing current timestamp (YYYY-mm-dd HH:MM:SS) and randomly generated data.
-    """
+    data1 = 0
+    data2 = 0
     if request.headers.getlist("X-Forwarded-For"):
         client_ip = request.headers.getlist("X-Forwarded-For")[0]
     else:
@@ -47,13 +44,16 @@ def generate_random_data() -> Iterator[str]:
         if testFlag == True:
             while True:
                 for event in block_filter.get_new_entries():
-                    handle_event(event)
+                    data = handle_event(event)
+                    if(data[0]=="data1"):
+                        data1 = data[1]
+                    else: 
+                        data2 = data[1]
                     json_data = json.dumps(
                         {
+                            "value": data1,
+                            "value2": data2,
                             "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "value": handle_event(event),
-                            "time2": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "value2": handle_event(event)+10,
                         }
                     )
                     yield f"data:{json_data}\n\n"

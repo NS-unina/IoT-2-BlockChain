@@ -44,14 +44,14 @@
                 labels: Array(30).fill("0000-00-00 00:00:00"),
                 datasets: [{
                     label: "data1",
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgb(116, 183, 46)',
+                    borderColor: 'rgb(116, 183, 46)',
                     data: Array(30).fill(null),
                     fill: false,
                 }, {
                     label: "data2",
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(100, 100, 100)',
+                    backgroundColor: 'rgb(237, 130, 14)',
+                    borderColor: 'rgb(237, 130, 14)',
                     data: Array(30).fill(null),
                     fill: false,
                 }],
@@ -60,7 +60,7 @@
                 responsive: true,
                 title: {
                     display: true,
-                    text: 'Creating Real-Time Charts with Flask'
+                    text: 'IoT 2 BlockChain Dashboard'
                 },
                 tooltips: {
                     mode: 'index',
@@ -104,7 +104,6 @@
             }
             config.data.labels.push(data.time);
             config.data.datasets[0].data.push(data.value);
-            config.data.labels.push(data.time2);
             config.data.datasets[1].data.push(data.value2);
             lineChart.update();
         }
