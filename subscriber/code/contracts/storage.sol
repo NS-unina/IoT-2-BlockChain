@@ -1,19 +1,17 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >=0.6.0 <0.9.0;
+pragma solidity >=0.8.0 <0.9.0;
 
-contract StoreVar {
 
-    uint8 public _myVar;
-    event MyEvent(uint indexed _var);
-
-    function setVar(uint8 _var) public {
-        _myVar = _var;
-        emit MyEvent(_var);
+contract aakash4dev{
+    struct device { 
+        string channelName;
+        uint8 value;
     }
 
-    function getVar() public view returns (uint8) {
-        return _myVar;
+    event valueRequest(device iotData);
+    function putdata(device memory d) public {
+        emit valueRequest(d);     
     }
-
 }
+

@@ -45,19 +45,12 @@ class subscriber(mqtt):
     def subscribe(self, web3):
         def on_message(client, userdata, msg):
             print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
-            web3.setTransaction(int(msg.payload.decode()))
+            web3.setTransaction([msg.topic, int(msg.payload.decode())])
         self.client.subscribe([("data2",0),("dummy-data",0)])
         #self.client.subscribe("data2")
         self.client.on_message = on_message
         #print(self.client.on_message.msg.payload.decode())
-
-    def subscribeNormal(self, web3):
-        def on_message(client, userdata, msg):
-            print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
-            #web3.setTransaction(int(msg.payload.decode()))
-        self.client.subscribe("data2")
-        #self.client.subscribe([("Server1/data2",0),("Server2/dummy-data",0)])
-        self.client.on_message = on_message    
+ 
     
     def loop_forever(self):
         self.client.loop_forever()

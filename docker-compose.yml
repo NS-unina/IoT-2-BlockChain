@@ -140,7 +140,7 @@ services:
     networks:
       eth:
         ipv4_address: 172.11.0.88     
-    #command: "tail -f /dev/null"
+    command: "tail -f /dev/null"
 
   explorer:
     depends_on:

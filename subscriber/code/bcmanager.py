@@ -19,7 +19,8 @@ class iot2blockchian:
  
 
     def sendContractAdd(self):
-        requests.get('http://172.11.0.88:5000/contract/' +  self.address)
+        pass
+        #requests.get('http://172.11.0.88:5000/contract/' +  self.address)
 
     def deploy_contract(self):
         def deploy_contract(w3, contract_interface):
@@ -44,7 +45,7 @@ class iot2blockchian:
 
     def setTransaction(self, val):
         store_var_contract = self.w3.eth.contract(address=self.address, abi=self.contract_interface["abi"])
-        tx_hash = store_var_contract.functions.setVar(val).transact({'from': self.w3.eth.accounts[0]})
+        tx_hash = store_var_contract.functions.putdata(val).transact({'from': self.w3.eth.accounts[0]})
         receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
         #pprint.pprint(dict(receipt))
         if receipt["status"] == 1:
