@@ -43,13 +43,13 @@
             data: {
                 labels: Array(30).fill("0000-00-00 00:00:00"),
                 datasets: [{
-                    label: "IoT data retrieved from BlockChain",
+                    label: "data1",
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: Array(30).fill(null),
                     fill: false,
                 }, {
-                    label: "IoT data 2",
+                    label: "data2",
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(100, 100, 100)',
                     data: Array(30).fill(null),
@@ -100,9 +100,12 @@
             if (config.data.labels.length === 30) {
                 config.data.labels.shift();
                 config.data.datasets[0].data.shift();
+                config.data.datasets[1].data.shift();
             }
             config.data.labels.push(data.time);
             config.data.datasets[0].data.push(data.value);
+            config.data.labels.push(data.time2);
+            config.data.datasets[1].data.push(data.value2);
             lineChart.update();
         }
     });

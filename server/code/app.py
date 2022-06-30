@@ -52,6 +52,8 @@ def generate_random_data() -> Iterator[str]:
                         {
                             "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                             "value": handle_event(event),
+                            "time2": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            "value2": handle_event(event)+10,
                         }
                     )
                     yield f"data:{json_data}\n\n"
