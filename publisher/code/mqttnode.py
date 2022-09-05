@@ -34,7 +34,7 @@ class publisher(mqtt):
         result = self.client.publish(self.topic, dummy_data)
         status = result[0]  
         if status == 0:
-            print(f"[+] Send to topic {self.topic}")
+            print(f"[+] Send {dummy_data} to topic {self.topic}")
         else:
             print(f"[-] Failed to send message to topic {self.topic}")
 

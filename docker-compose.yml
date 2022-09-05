@@ -103,7 +103,7 @@ services:
       context: ./publisher
     networks:
       - eth  
-    command: "python3 publisher.py -t data1 -i 5"  
+    command: "python3 -u publisher.py -t data1 -i 5"  
   
   publisher-2:
     depends_on:
@@ -114,7 +114,7 @@ services:
       context: ./publisher
     networks:
       - eth 
-    command: "python3 publisher.py -t data2 -i 10"
+    command: "python3 -u publisher.py -t data2 -i 10"
 
   subscriber:
     restart: always
