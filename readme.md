@@ -26,31 +26,23 @@ Di seguito si fornisce uno schematico dell'infrastruttura creata e una breve des
 ![IoT2Blockchain-arch](/img/IoT2Blockchain-arch.png)
 
 ## Deploy 
+
 ### Prerequisiti 
 
-Per facilitare il deploy del seguente progetto l'architettura è stata realizzata attraverso l'utilizzo di container Docker. 
+Al fine di poter avviare l’architettura nella maniera corretta risulta necessario aver installato i seguenti applicativi sul proprio sistema:
+- git ([https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+- docker ([https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/))
+- docker-compose ([https://docs.docker.com/compose/](https://docs.docker.com/compose/))
+Inoltre, per effettuare l’installazione del software mancante si consiglia di seguire le istruzioni presenti all’interno dei link indicati nella lista
 
-Il bootstrap può essere effettuato attraverso l'utilizzo del seguente comando.
+### Avvio del progetto
 
+Per avviare il progetto eseguire la seguente lista di comandi:
 ```
-docker-compose up -d
+git clone https://github.com/NS-unina/IoT-2-BlockChain.git
+cd IoT-2-BlockChain
+docker-compose up 
 ```
-
-Nel caso non si abbia installato sul proprio device docker o docker-compose si consiglia di leggere la documentazione contenuta nei seguenti link.
-
-- [docker](https://docs.docker.com/engine/install/)
-- [docker-compose](https://docs.docker.com/compose/install/)
-
----------------------------------------------------
-
-
-Al fine di poter avviare l'architettura nella maniera corretta risulta necessario aver installato i seguenti applicativi sul proprio sistema: 
-\begin{itemize}
-- git (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-    \item docker (https://docs.docker.com/engine/install/)
-    \item docker-compose (https://docs.docker.com/compose/)
-\end{itemize}
-Inoltre, per effettuare l'installazione del software mancante si consiglia di seguire le istruzioni presenti all'interno dei link indicati nella lista.
 
 [![asciicast](https://asciinema.org/a/4V3ZJUayAs10ae3LnpQu41dx1.svg)](https://asciinema.org/a/4V3ZJUayAs10ae3LnpQu41dx1)
 
