@@ -25,14 +25,18 @@ Di seguito si fornisce uno schematico dell'infrastruttura creata e una breve des
 
 ![IoT2Blockchain-arch](/img/IoT2Blockchain-arch.png)
 
+**Per una descrizione accurata dell'intero progetto si consiglia di leggere la documentazione associata.**
+
 ## Deploy 
 
 ### Prerequisiti 
 
 Al fine di poter avviare l’architettura nella maniera corretta risulta necessario aver installato i seguenti applicativi sul proprio sistema:
+
 - git ([https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
 - docker ([https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/))
 - docker-compose ([https://docs.docker.com/compose/](https://docs.docker.com/compose/))
+
 Inoltre, per effettuare l’installazione del software mancante si consiglia di seguire le istruzioni presenti all’interno dei link indicati nella lista
 
 ### Avvio del progetto
@@ -46,15 +50,30 @@ docker-compose up
 
 [![asciicast](https://asciinema.org/a/4V3ZJUayAs10ae3LnpQu41dx1.svg)](https://asciinema.org/a/4V3ZJUayAs10ae3LnpQu41dx1)
 
+### Proof of Concept 
+
+### Publisher e subscriber
+Il comportamento dei nodi publisher e subscriber è stato implementato attraverso l'utilizzo di due script *python*. Per verificare il corretto funzionamento dei seguenti programmi si consiglia di utilizzare i comandi qui riportati:
+```
+#output script nodo subscriber
+docker log subscriber
+
+#output scipt nodi publisher
+docker log publisher
+docker log publisher-2
+```
+
+[![asciicast](https://asciinema.org/a/FRKzICdA1rIMrkOZpuB7dUBtv.svg)](https://asciinema.org/a/FRKzICdA1rIMrkOZpuB7dUBtv)
+
+#### WebServer
+Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e generati dai due nodi publisher è stata implementata una realtime dashboard. Tale servizio risulta essere raggingibile all'indirizzo [http://localhost:5000](http://localhost:5000)
+
 ## Exposed secrice 
+Al fine di comprendere il funzionamento e lo stato della blockchain è stato implememtato un block explorer e un ethereum network monitor visualizzabili ai seguenti link.
+
 **EthStat**
 
 http://localhost:3000
-
-
-**RealTime Dashboard**
-
-http://localhost:5000
 
 **Explorer**
 
