@@ -26,6 +26,8 @@ Di seguito si fornisce uno schematico dell'infrastruttura creata e una breve des
 ![IoT2Blockchain-arch](/img/IoT2Blockchain-arch.png)
 
 ## Deploy 
+### Prerequisiti 
+
 Per facilitare il deploy del seguente progetto l'architettura è stata realizzata attraverso l'utilizzo di container Docker. 
 
 Il bootstrap può essere effettuato attraverso l'utilizzo del seguente comando.
@@ -50,7 +52,7 @@ Al fine di poter avviare l'architettura nella maniera corretta risulta necessari
 \end{itemize}
 Inoltre, per effettuare l'installazione del software mancante si consiglia di seguire le istruzioni presenti all'interno dei link indicati nella lista.
 
-
+[![asciicast](https://asciinema.org/a/4V3ZJUayAs10ae3LnpQu41dx1.svg)](https://asciinema.org/a/4V3ZJUayAs10ae3LnpQu41dx1)
 
 ## Exposed secrice 
 **EthStat**
