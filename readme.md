@@ -5,13 +5,11 @@ Il seguente progetto ha lo scopo di mostrate tutti i vantaggi che può portare l
 **Questo progetto risulta essere una Proof of Concept. La sua realizzazione ha il solo scopo di mostrare la fattibilità di implementazione dei requisiti precedentemente descritti.**
 
 ## Architettura
-Per comprendere al meglio il funzionamento della soluzione proposta viene descritto di seguito il ruolo di ogni componente presente all'interno dell'ecosistema IoT2BlockChain (Fig.\ref{Infra_IoT2BlokChain}):
-
 L'architettura proposta ha lo scopo di mostrare come Ethereum e gli Smart Contract possano essere utilizzati per garantire l’integrità, la tracciabilità e la consistenza del dato raccolto da un generico sensore IoT. Il raggiungimento di tale obiettivo è reso possibile integrando le tecnologie appena citate, con i principi architetturali dell’edge computing.
 
 ![IoT2Blockchain-arch](/img/edgeComputing.jpg)
 
-Tale paradigma prevede che venga creata un’infrastruttura IT decentralizzata e distribuita che abbia il compito di elaborare i dati raccolti dagli smart device e successivamente registrarli su una blockchain privata. Tale approccio, oltre a ridurre notevolmente il traffico di rete, permette di offrire una soluzione maggiormente resiliente e scalabile. Infine, per verificare il corretto funzionamento dell’architettura `e stata sviluppata una web application che permette di visualizzare tutti i dati memorizzati all’interno della blockchain.
+Tale paradigma prevede che venga creata un’infrastruttura IT decentralizzata e distribuita che abbia il compito di elaborare i dati raccolti dagli smart device e successivamente registrarli su una blockchain privata. Tale approccio, oltre a ridurre notevolmente il traffico di rete, permette di offrire una soluzione maggiormente resiliente e scalabile. Infine, per verificare il corretto funzionamento dell’architettura è stata sviluppata una web application che permette di visualizzare tutti i dati memorizzati all’interno della blockchain.
 
 Di seguito si fornisce uno schematico dell'infrastruttura creata e una breve descrizione di ogni componente ivi presente.
 
@@ -53,7 +51,7 @@ docker-compose up
 ### Proof of Concept 
 
 ### Publisher e subscriber
-Il comportamento dei nodi publisher e subscriber è stato implementato attraverso l'utilizzo di due script *python*. Per verificare il corretto funzionamento dei seguenti programmi si consiglia di utilizzare i comandi qui riportati:
+Il comportamento dei nodi publisher e subscriber è stato implementato attraverso l'utilizzo di due script *python*. Per verificare il corretto funzionamento dei seguenti programmi si consiglia di analizzare l'output dei suddeti script utilizzando i comandi qui riportati:
 ```
 #output script nodo subscriber
 docker log subscriber
@@ -72,8 +70,10 @@ Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e gen
 Al fine di comprendere il funzionamento e lo stato della blockchain è stato implememtato un block explorer e un ethereum network monitor visualizzabili ai seguenti link.
 
 **EthStat**
+Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:8000](http://localhost:8000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguit è riportata una immagine esemplificativa di tale interfaccia.
 
-http://localhost:3000
+![IoT2Blockchain-arch](/img/ethStat.png)
+
 
 **Explorer**
 
