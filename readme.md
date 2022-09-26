@@ -66,16 +66,15 @@ docker log publisher-2
 #### WebServer
 Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e generati dai due nodi publisher è stata implementata una realtime dashboard. Tale servizio risulta essere raggingibile all'indirizzo [http://localhost:5000](http://localhost:5000)
 
-## Exposed secrice 
-Al fine di comprendere il funzionamento e lo stato della blockchain è stato implememtato un block explorer e un ethereum network monitor visualizzabili ai seguenti link.
+![IoT2Blockchain-arch](/img/telemetry.png)
+
+## Altri servizi
 
 **EthStat**
-Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:8000](http://localhost:8000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguit è riportata una immagine esemplificativa di tale interfaccia.
+Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:3000](http://localhost:3000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguit è riportata una immagine esemplificativa di tale interfaccia.
 
 ![IoT2Blockchain-arch](/img/ethStat.png)
 
-
-**Explorer**
-
-http://localhost:8000
+**Blockchain Explorer**
+Il servizio blockchain explorer permette all'utente di visualizzare i dati contenuti all'interno di una transazione sulla catena. Tale funzionalità può essere utilizzata per comprendere come avviene l'instanzione dello smartcontract e il salvataggio dei *"dammy-data"*. Tali funzionalità sono accessibili attraverso l'utilizzo di una web application raggiungibile all'indirizzo [http://localhost:8000](http://localhost:8000)
 
