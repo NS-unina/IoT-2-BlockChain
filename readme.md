@@ -44,7 +44,7 @@ Inoltre, per effettuare l’installazione del software mancante si consiglia di 
 ### Avvio del progetto
 
 Per avviare il progetto eseguire la seguente lista di comandi:
-```
+```bash
 git clone https://github.com/NS-unina/IoT-2-BlockChain.git
 cd IoT-2-BlockChain
 docker-compose up 
@@ -56,7 +56,8 @@ docker-compose up
 
 ### Publisher e subscriber
 Il comportamento dei nodi publisher e subscriber è stato implementato attraverso l'utilizzo di due script *python*. Per verificare il corretto funzionamento dei seguenti programmi si consiglia di analizzare l'output dei suddeti script utilizzando i comandi qui riportati:
-```
+
+```bash
 #output script nodo subscriber
 docker log subscriber
 
