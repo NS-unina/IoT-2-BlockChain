@@ -71,10 +71,13 @@ Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e gen
 ## Altri servizi
 
 **EthStat**
+
 Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:3000](http://localhost:3000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguit è riportata una immagine esemplificativa di tale interfaccia.
 
 ![IoT2Blockchain-arch](/img/ethStat.png)
 
 **Blockchain Explorer**
+
 Il servizio blockchain explorer permette all'utente di visualizzare i dati contenuti all'interno di una transazione sulla catena. Tale funzionalità può essere utilizzata per comprendere come avviene l'instanzione dello smartcontract e il salvataggio dei *"dammy-data"*. Tali funzionalità sono accessibili attraverso l'utilizzo di una web application raggiungibile all'indirizzo [http://localhost:8000](http://localhost:8000)
 
+![IoT2Blockchain-arch](/img/blockchain-explorer.png)
