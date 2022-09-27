@@ -7,7 +7,10 @@ Il seguente progetto ha lo scopo di mostrate tutti i vantaggi che può portare l
 ## Architettura
 L'architettura proposta ha lo scopo di mostrare come Ethereum e gli Smart Contract possano essere utilizzati per garantire l’integrità, la tracciabilità e la consistenza del dato raccolto da un generico sensore IoT. Il raggiungimento di tale obiettivo è reso possibile integrando le tecnologie appena citate, con i principi architetturali dell’edge computing.
 
-![IoT2Blockchain-arch](/img/edgeComputing.jpg)
+<p align="center">
+   <img src="img/edgeComputing.jpg" alt="edgeComputing"/>
+</p>
+
 
 Tale paradigma prevede che venga creata un’infrastruttura IT decentralizzata e distribuita che abbia il compito di elaborare i dati raccolti dagli smart device e successivamente registrarli su una blockchain privata. Tale approccio, oltre a ridurre notevolmente il traffico di rete, permette di offrire una soluzione maggiormente resiliente e scalabile. Infine, per verificare il corretto funzionamento dell’architettura è stata sviluppata una web application che permette di visualizzare tutti i dati memorizzati all’interno della blockchain.
 
@@ -21,7 +24,9 @@ Di seguito si fornisce uno schematico dell'infrastruttura creata e una breve des
 - il servizio **Explorer** permette di visualizzare il contenuto di ogni blocco presente all'interno della blockchain;
 - il **server** espone un servizio HTTP che permette di visualizzare in tempo reale la telemetria dei dati raccolti dai nodi publisher e pubblicati all'interno della blockchain. 
 
-![IoT2Blockchain-arch](/img/IoT2Blockchain-arch.png)
+<p align="center">
+   <img src="img/IoT2Blockchain-arch.png" alt="IoT2Blockchain"/>
+</p>
 
 **Per una descrizione accurata dell'intero progetto si consiglia di leggere la documentazione associata.**
 
@@ -66,7 +71,9 @@ docker log publisher-2
 #### WebServer
 Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e generati dai due nodi publisher è stata implementata una realtime dashboard. Tale servizio risulta essere raggingibile all'indirizzo [http://localhost:5000](http://localhost:5000)
 
-![IoT2Blockchain-arch](/img/telemetry.png)
+<p align="center">
+   <img src="img/telemetry.png" alt="telemetry"/>
+</p>
 
 ## Altri servizi
 
@@ -74,10 +81,14 @@ Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e gen
 
 Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:3000](http://localhost:3000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguit è riportata una immagine esemplificativa di tale interfaccia.
 
-![IoT2Blockchain-arch](/img/ethStat.png)
+<p align="center">
+   <img src="img/ethStat.png" alt="ethStat"/>
+</p>
 
 **Blockchain Explorer**
 
 Il servizio blockchain explorer permette all'utente di visualizzare i dati contenuti all'interno di una transazione sulla catena. Tale funzionalità può essere utilizzata per comprendere come avviene l'instanzione dello smartcontract e il salvataggio dei *"dammy-data"*. Tali funzionalità sono accessibili attraverso l'utilizzo di una web application raggiungibile all'indirizzo [http://localhost:8000](http://localhost:8000)
 
-![IoT2Blockchain-arch](/img/blockchain-explorer.png)
+<p align="center">
+   <img src="img/blockchain-explorer.png" alt="blockchain-explorer"/>
+</p>
