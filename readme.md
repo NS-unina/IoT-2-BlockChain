@@ -78,7 +78,7 @@ Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e gen
 
 **EthStat**
 
-Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:3000](http://localhost:3000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguit è riportata una immagine esemplificativa di tale interfaccia.
+Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:3000](http://localhost:3000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguito è riportata una immagine esemplificativa di tale interfaccia.
 
 <p align="center">
    <img src="img/ethStat.png" alt="ethStat"/>
