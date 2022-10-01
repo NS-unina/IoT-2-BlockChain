@@ -1,6 +1,6 @@
 # IoT 2 BlockChain 
 
-Il seguente progetto ha lo scopo di mostrate tutti i vantaggi che può portare l'implementazione del paradigma Web3 nel constesto dell'Internet of Thighs (IoT). Con questa soluzione si vuole mostare come una BlockChain privata può essere utilizzata per la validazione dei dati prodotti da un numero massivo di dispositivi smart. Tale aspetto è un importante requisito funzionale richiesto dalle architetture *Zero-Trust*. Le suddette architetture sono progettate secondo il principio *“verify and never trust"* e pertanto qualsiasi sistema all'interno dell'infrastruttura informatica deve essere considerato "non fidato" e le sue azioni devono essere monitorate e verificare al fine di indentificare eventuali compromissioni. 
+Il seguente progetto ha lo scopo di mostrate tutti i vantaggi che può portare l'implementazione del paradigma Web3 nel constesto dell'Internet of Thighs (IoT). Con questa soluzione si vuole mostare come una BlockChain privata può essere utilizzata per la validazione dei dati prodotti da un numero massivo di dispositivi smart. Tale aspetto è un importante requisito funzionale richiesto dalle architetture *Zero-Trust*. Le suddette architetture sono progettate secondo il principio *“verify and never trust"* e pertanto qualsiasi sistema all'interno dell'infrastruttura informatica deve essere considerato "non fidato" e le sue azioni devono essere monitorate e verificate al fine di indentificare eventuali compromissioni. 
 
 **Questo progetto risulta essere una Proof of Concept. La sua realizzazione ha il solo scopo di mostrare la fattibilità di implementazione dei requisiti precedentemente descritti.**
 
@@ -13,7 +13,7 @@ L'architettura proposta ha lo scopo di mostrare come Ethereum e gli Smart Contra
 
 Tale paradigma prevede che venga creata un’infrastruttura IT decentralizzata e distribuita che abbia il compito di elaborare i dati raccolti dagli smart device e successivamente registrarli su una blockchain privata. Tale approccio, oltre a ridurre notevolmente il traffico di rete, permette di offrire una soluzione maggiormente resiliente e scalabile. Infine, per verificare il corretto funzionamento dell’architettura è stata sviluppata una web application che permette di visualizzare tutti i dati memorizzati all’interno della blockchain.
 
-Di seguito si fornisce uno schematico dell'infrastruttura creata e una breve descrizione di ogni componente ivi presente.
+Di seguito si fornisce uno schema dell'infrastruttura creata e una breve descrizione di ogni componente ivi presente.
 
 - il nodo **subscriber** analizza e processa tutti i dati raccolti dai sensori e resi disponibili dai nodi publisher. Esso assume anche il compito di fare da **Proxy** verso la blockchain, effettuando tutte le operazioni necessarie per la memorizzazione dei dati all'interno della stessa;
 - il **broker** è un software che consente la comunicazione asincrona e lo scambio di messaggi tra il publisher e i subscriber;
@@ -55,7 +55,7 @@ docker-compose up
 ### Proof of Concept 
 
 ### Publisher e subscriber
-Il comportamento dei nodi publisher e subscriber è stato implementato attraverso l'utilizzo di due script *python*. Per verificare il corretto funzionamento dei seguenti programmi si consiglia di analizzare l'output dei suddeti script utilizzando i comandi qui riportati:
+Il comportamento dei nodi publisher e subscriber è stato implementato attraverso l'utilizzo di due script *python*. Per verificare il corretto funzionamento dei programmi menzionati si consiglia di analizzare l'output dei suddeti script utilizzando i comandi qui riportati:
 
 ```bash
 #output script nodo subscriber
@@ -69,7 +69,7 @@ docker log publisher-2
 [![asciicast](https://asciinema.org/a/FRKzICdA1rIMrkOZpuB7dUBtv.svg)](https://asciinema.org/a/FRKzICdA1rIMrkOZpuB7dUBtv)
 
 #### WebServer
-Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e generati dai due nodi publisher è stata implementata una realtime dashboard. Tale servizio risulta essere raggingibile all'indirizzo [http://localhost:5000](http://localhost:5000).
+Per visualizzare i *"dummy-data"* memorizzati all'interno della blockchain e generati dai due nodi publisher è stata implementata una realtime dashboard. Tale servizio è raggingibile all'indirizzo [http://localhost:5000](http://localhost:5000).
 
 <p align="center">
    <img src="img/telemetry.png" alt="telemetry"/>
@@ -79,7 +79,7 @@ Per visualizzare i *"dammy-data"* memorizzati all'intenro della blockchain e gen
 
 **EthStat**
 
-Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio risulta essere accessibile all'indirizzo [http://localhost:3000](http://localhost:3000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguito è riportata una immagine esemplificativa di tale interfaccia.
+Per monitorare lo stato della blockchain privata è stato implementato un Ethereum Network Monitor. Tale servizio è accessibile all'indirizzo [http://localhost:3000](http://localhost:3000) e permette di visualizzare attraverso una dashboard le statistiche e i grafici inerenti alle prestazioni della blockchain. Di seguito è riportata una immagine esemplificativa di tale interfaccia.
 
 <p align="center">
    <img src="img/ethStat.png" alt="ethStat"/>
@@ -87,7 +87,7 @@ Per monitorare lo stato della blockchain privata è stato implementato un Ethere
 
 **Blockchain Explorer**
 
-Il servizio blockchain explorer permette all'utente di visualizzare i dati contenuti all'interno di una transazione sulla catena. Tale funzionalità può essere utilizzata per comprendere come avviene l'instanzione dello smartcontract e il salvataggio dei *"dammy-data"*. Tali funzionalità sono accessibili attraverso l'utilizzo di una web application raggiungibile all'indirizzo [http://localhost:8000](http://localhost:8000).
+Il servizio blockchain explorer permette all'utente di visualizzare i dati contenuti all'interno di una transazione sulla catena. Tale funzionalità può essere utilizzata per comprendere come avviene l'istanziazione dello smart contract ed il salvataggio dei *"dummy-data"*. Tali funzionalità sono accessibili attraverso l'utilizzo di una web application raggiungibile all'indirizzo [http://localhost:8000](http://localhost:8000).
 
 <p align="center">
    <img src="img/blockchain-explorer.png" alt="blockchain-explorer"/>
